@@ -1,5 +1,5 @@
 {
-  "name": "@twilio/video-room-monitor",
+  "name": "@mobilebiz/video-room-monitor",
   "version": "1.0.0-dev",
   "description": "Twilio Video Room Monitor Javascript Library",
   "main": "dist/node/index.js",
