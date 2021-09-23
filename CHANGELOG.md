@@ -1,3 +1,7 @@
+# 1.0.0-beta.3 (September 23, 2021)
+
+Upgrade React version 16.8.0 to 17.0.2 by katsumi@gij.com
+
 # 1.0.0-beta.2 (August 16, 2021)
 
 ### Improvements
