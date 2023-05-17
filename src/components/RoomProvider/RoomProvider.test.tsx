@@ -3,7 +3,12 @@ import React from 'react';
 import useRoom from '../../hooks/useRoom/useRoom';
 import RoomProvider, * as RoomProviderObj from './RoomProvider';
 
-const wrapper: React.FC = ({ children }) => <RoomProvider>{children}</RoomProvider>;
+type Props = {
+  label: string;
+  children?: React.ReactNode;
+};
+
+const wrapper: React.FC<Props> = ({ children }) => <RoomProvider>{children}</RoomProvider>;
 
 describe('the RoomProvider component', () => {
   afterEach(() => {

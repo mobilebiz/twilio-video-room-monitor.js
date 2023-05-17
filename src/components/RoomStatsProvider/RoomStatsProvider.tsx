@@ -15,11 +15,15 @@ export interface RoomStats {
   currentSentBitrate: number | null;
 }
 
+type Props = {
+  children?: React.ReactNode;
+};
+
 export const truncateFront = (arr: any[], limit: number) => arr.slice(Math.max(0, arr.length - limit), arr.length);
 
 export const RoomStatsContext = React.createContext<RoomStats>(null!);
 
-export const RoomStatsProvider: React.FC = ({ children }) => {
+export const RoomStatsProvider: React.FC<Props> = ({ children }) => {
   const previousStatsRef = useRef<StatsReport[]>();
   const receivedBitrateHistoryRef = useRef<chartDatum[]>([]);
   const sentBitrateHistoryRef = useRef<chartDatum[]>([]);

@@ -16,6 +16,11 @@ jest.mock('../../hooks/useGetStats/useGetStats', () => jest.fn(() => 'mockStats'
 const mockUseGetStats = useGetStats as jest.Mock<any>;
 const mockUseRoom = useRoom as jest.Mock<any>;
 
+type Props = {
+  label: string;
+  children?: React.ReactNode;
+};
+
 describe('the truncateFront function', () => {
   it('should remove elements from the front of the array so that the arrays length remains less than or equal to the specified limit', () => {
     const data = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -26,7 +31,7 @@ describe('the truncateFront function', () => {
 
 describe('the RoomStatsProvider component', () => {
   it('should correctly return stats and previousStats', () => {
-    const wrapper: React.FC = ({ children }) => <RoomStatsProvider>{children}</RoomStatsProvider>;
+    const wrapper: React.FC<Props> = ({ children }) => <RoomStatsProvider>{children}</RoomStatsProvider>;
     const { result, rerender } = renderHook(useStats, { wrapper });
 
     expect(mockUseRoom).toHaveBeenCalled();
@@ -43,7 +48,7 @@ describe('the RoomStatsProvider component', () => {
   it('should correctly return bandwidth statistics and history', () => {
     Date.now = () => 1000;
 
-    const wrapper: React.FC = ({ children }) => <RoomStatsProvider>{children}</RoomStatsProvider>;
+    const wrapper: React.FC<Props> = ({ children }) => <RoomStatsProvider>{children}</RoomStatsProvider>;
     const { result, rerender } = renderHook(useStats, { wrapper });
 
     expect(result.current).toMatchObject({
